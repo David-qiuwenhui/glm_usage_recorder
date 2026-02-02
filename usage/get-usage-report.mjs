@@ -234,40 +234,40 @@ function parseUsageData(inputText) {
       ?.map((d) => `- ${d.modelCode}: ${d.usage} 次`)
       .join("\n") || "";
 
-  return `GLM Coding Plan 使用情况查询结果
+  return `# 📊 GLM Coding Plan 使用情况查询结果
 
-### 平台
+## 🏢 平台
 
 **${platformNames[platform] || platform}**
 
 ---
 
-### 模型使用统计
+## 🤖 模型使用统计
 
-| 时间范围 | 模型调用次数 | Token 使用量 |
+| ⏱️ 时间范围 | 📞 调用次数 | 💎 Token 使用量 |
 |---------|-------------|-------------|
-| **总计** | **${fmt(modelUsage.totalUsage?.totalModelCallCount || 0)} 次** | **${fmt(modelUsage.totalUsage?.totalTokensUsage || 0)} Tokens** |
+| **📈 总计** | **${fmt(modelUsage.totalUsage?.totalModelCallCount || 0)} 次** | **${fmt(modelUsage.totalUsage?.totalTokensUsage || 0)} Tokens** |
 
-**时间分布：**
+**📅 时间分布：**
 
 ${timeDist || "暂无数据"}
 
 ---
 
-### 工具使用统计
+## 🔧 工具使用统计
 
-| 工具类型 | 使用次数 |
+| 🛠️ 工具类型 | 📊 使用次数 |
 |---------|---------|
-| 网络搜索 | ${fmt(toolUsage.totalUsage?.totalNetworkSearchCount || 0)} 次 |
-| Web Reader MCP | ${fmt(toolUsage.totalUsage?.totalWebReadMcpCount || 0)} 次 |
-| Zread MCP | ${fmt(toolUsage.totalUsage?.totalZreadMcpCount || 0)} 次 |
-| **总工具调用** | **${fmt(toolUsage.totalUsage?.totalSearchMcpCount || 0)} 次** |
+| 🔍 网络搜索 | ${fmt(toolUsage.totalUsage?.totalNetworkSearchCount || 0)} 次 |
+| 📖 Web Reader MCP | ${fmt(toolUsage.totalUsage?.totalWebReadMcpCount || 0)} 次 |
+| 📚 Zread MCP | ${fmt(toolUsage.totalUsage?.totalZreadMcpCount || 0)} 次 |
+| **🔢 总工具调用** | **${fmt(toolUsage.totalUsage?.totalSearchMcpCount || 0)} 次** |
 
 ---
 
-### 配额限制情况
+## ⚠️ 配额限制情况
 
-| 限制类型 | 已用百分比 | 详情 |
+| 📏 限制类型 | 📊 已用百分比 | 📝 详情 |
 |---------|-----------|------|
 ${quotaLimits.limits
   ?.map((l) => {
@@ -279,7 +279,7 @@ ${quotaLimits.limits
   })
   .join("\n")}
 
-${mcpDetails ? `**MCP 工具详细使用：**\n\n${mcpDetails}` : ""}
+${mcpDetails ? `**📋 MCP 工具详细使用：**\n\n${mcpDetails}` : ""}
 `;
 }
 
