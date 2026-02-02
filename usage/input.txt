@@ -1,0 +1,14 @@
+Platform: ZHIPU
+
+Model usage data:
+
+{"x_time":["2026-02-01 23:00","2026-02-02 00:00","2026-02-02 01:00","2026-02-02 02:00","2026-02-02 03:00","2026-02-02 04:00","2026-02-02 05:00","2026-02-02 06:00","2026-02-02 07:00","2026-02-02 08:00","2026-02-02 09:00","2026-02-02 10:00","2026-02-02 11:00","2026-02-02 12:00","2026-02-02 13:00","2026-02-02 14:00","2026-02-02 15:00","2026-02-02 16:00","2026-02-02 17:00","2026-02-02 18:00","2026-02-02 19:00","2026-02-02 20:00","2026-02-02 21:00","2026-02-02 22:00"],"modelCallCount":[157,172,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,102],"tokensUsage":[1957006,2591300,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,1155438],"totalUsage":{"totalModelCallCount":431,"totalTokensUsage":5703744}}
+
+Tool usage data:
+
+{"x_time":["2026-02-01 23:00","2026-02-02 00:00","2026-02-02 01:00","2026-02-02 02:00","2026-02-02 03:00","2026-02-02 04:00","2026-02-02 05:00","2026-02-02 06:00","2026-02-02 07:00","2026-02-02 08:00","2026-02-02 09:00","2026-02-02 10:00","2026-02-02 11:00","2026-02-02 12:00","2026-02-02 13:00","2026-02-02 14:00","2026-02-02 15:00","2026-02-02 16:00","2026-02-02 17:00","2026-02-02 18:00","2026-02-02 19:00","2026-02-02 20:00","2026-02-02 21:00","2026-02-02 22:00"],"networkSearchCount":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0],"webReadMcpCount":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0],"zreadMcpCount":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,4],"totalUsage":{"totalNetworkSearchCount":0,"totalWebReadMcpCount":0,"totalZreadMcpCount":4,"totalSearchMcpCount":4,"toolDetails":[{"modelName":"zread","totalUsageCount":4}]}}
+
+Quota limit data:
+
+{"limits":[{"type":"Token usage(5 Hour)","percentage":2},{"type":"MCP usage(1 Month)","percentage":8,"currentUsage":8,"totol":100,"usageDetails":[{"modelCode":"search-prime","usage":1},{"modelCode":"web-reader","usage":3},{"modelCode":"zread","usage":4}]}]}
+

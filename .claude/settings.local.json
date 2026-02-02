@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod:*)",
+      "Bash(claude -p \"/glm-plan-usage:usage-query\")",
+      "Skill(glm-plan-usage:usage-query)",
+      "Bash(bash:*)",
+      "mcp__zread__get_repo_structure",
+      "mcp__zread__read_file",
+      "Bash(node:*)",
+      "Bash(npm:*)"
+    ]
+  }
+}
