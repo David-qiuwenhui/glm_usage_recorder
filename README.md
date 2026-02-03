@@ -192,13 +192,13 @@ node usage/parse-usage.mjs "$(cat usage/input.txt)"
   <sub>Built with ❤️ for GLM Coding Plan</sub>
 </p>
 
-```shell
-// 定时任务文件位置
+```sh
+## 定时任务文件位置
 ~/Library/LaunchAgents/com.user.run-shortcut.plist
-// 启动定时任务文件
+## 启动定时任务文件
 launchctl load ~/Library/LaunchAgents/com.user.run-shortcut.plist
-// 验证是否成功
+## 验证是否成功
 launchctl list | grep com.user.run-shortcut
-// 立刻手动触发测试
+## 立刻手动触发测试
 launchctl start com.user.run-shortcut
 ```
