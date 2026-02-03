@@ -79,9 +79,9 @@ zsh usage-report.sh
 
 ## 🤖 模型使用统计
 
-| ⏱️ 时间范围 | 📞 调用次数 | 💎 Token 使用量 |
-|---------|-------------|-------------|
-| **📈 总计** | **431 次** | **5,703,744 Tokens** |
+| ⏱️ 时间范围 | 📞 调用次数 | 💎 Token 使用量      |
+| ----------- | ----------- | -------------------- |
+| **📈 总计** | **431 次**  | **5,703,744 Tokens** |
 
 **📅 时间分布：**
 
@@ -93,21 +93,21 @@ zsh usage-report.sh
 
 ## 🔧 工具使用统计
 
-| 🛠️ 工具类型 | 📊 使用次数 |
-|---------|---------|
-| 🔍 网络搜索 | 0 次 |
-| 📖 Web Reader MCP | 0 次 |
-| 📚 Zread MCP | 4 次 |
-| **🔢 总工具调用** | **4 次** |
+| 🛠️ 工具类型       | 📊 使用次数 |
+| ----------------- | ----------- |
+| 🔍 网络搜索       | 0 次        |
+| 📖 Web Reader MCP | 0 次        |
+| 📚 Zread MCP      | 4 次        |
+| **🔢 总工具调用** | **4 次**    |
 
 ---
 
 ## ⚠️ 配额限制情况
 
-| 📏 限制类型 | 📊 已用百分比 | 📝 详情 |
-|---------|-----------|------|
-| Token usage(5 Hour) | 6% | - |
-| MCP usage(1 Month) | 8% | 8/100 次 |
+| 📏 限制类型         | 📊 已用百分比 | 📝 详情  |
+| ------------------- | ------------- | -------- |
+| Token usage(5 Hour) | 6%            | -        |
+| MCP usage(1 Month)  | 8%            | 8/100 次 |
 ```
 
 ---
@@ -143,7 +143,7 @@ glm_usage_recorder/
 独立的数据解析函数，可单独使用：
 
 ```javascript
-import { parseUsageData } from './usage/parse-usage.mjs';
+import { parseUsageData } from "./usage/parse-usage.mjs";
 
 const rawData = "Platform: ZHIPU\n...";
 const report = parseUsageData(rawData);
@@ -191,3 +191,14 @@ node usage/parse-usage.mjs "$(cat usage/input.txt)"
 <p align="center">
   <sub>Built with ❤️ for GLM Coding Plan</sub>
 </p>
+
+```shell
+// 定时任务文件位置
+~/Library/LaunchAgents/com.user.run-shortcut.plist
+// 启动定时任务文件
+launchctl load ~/Library/LaunchAgents/com.user.run-shortcut.plist
+// 验证是否成功
+launchctl list | grep com.user.run-shortcut
+// 立刻手动触发测试
+launchctl start com.user.run-shortcut
+```

@@ -234,52 +234,48 @@ function parseUsageData(inputText) {
       ?.map((d) => `- ${d.modelCode}: ${d.usage} 次`)
       .join("\n") || "";
 
-  return `# 📊 GLM Coding Plan 使用情况查询结果
+  return `📊 **GLM Coding Plan 使用情况**
 
-## 🏢 平台
+━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-**${platformNames[platform] || platform}**
+🏢 **平台**
+${platformNames[platform] || platform}
 
----
+━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-## 🤖 模型使用统计
+🤖 **模型使用**
+📞 调用：${fmt(modelUsage.totalUsage?.totalModelCallCount || 0)} 次
+💎 Token：${fmt(modelUsage.totalUsage?.totalTokensUsage || 0)}
 
-| ⏱️ 时间范围 | 📞 调用次数 | 💎 Token 使用量 |
-|---------|-------------|-------------|
-| **📈 总计** | **${fmt(modelUsage.totalUsage?.totalModelCallCount || 0)} 次** | **${fmt(modelUsage.totalUsage?.totalTokensUsage || 0)} Tokens** |
+${timeDist ? `📅 近期活跃时段：
+${timeDist}` : ''}
 
-**📅 时间分布：**
+━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-${timeDist || "暂无数据"}
+🔧 **工具使用**
+🔍 网络搜索 ${fmt(toolUsage.totalUsage?.totalNetworkSearchCount || 0)}
+📖 Web Reader ${fmt(toolUsage.totalUsage?.totalWebReadMcpCount || 0)}
+📚 Zread ${fmt(toolUsage.totalUsage?.totalZreadMcpCount || 0)}
+🔢 **总计 ${fmt(toolUsage.totalUsage?.totalSearchMcpCount || 0)} 次**
 
----
+━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-## 🔧 工具使用统计
-
-| 🛠️ 工具类型 | 📊 使用次数 |
-|---------|---------|
-| 🔍 网络搜索 | ${fmt(toolUsage.totalUsage?.totalNetworkSearchCount || 0)} 次 |
-| 📖 Web Reader MCP | ${fmt(toolUsage.totalUsage?.totalWebReadMcpCount || 0)} 次 |
-| 📚 Zread MCP | ${fmt(toolUsage.totalUsage?.totalZreadMcpCount || 0)} 次 |
-| **🔢 总工具调用** | **${fmt(toolUsage.totalUsage?.totalSearchMcpCount || 0)} 次** |
-
----
-
-## ⚠️ 配额限制情况
-
-| 📏 限制类型 | 📊 已用百分比 | 📝 详情 |
-|---------|-----------|------|
+⚠️ **配额限制**
 ${quotaLimits.limits
   ?.map((l) => {
     const detail =
       l.currentUsage != null && l.totol != null
-        ? `${l.currentUsage}/${l.totol} 次`
-        : "-";
-    return `| ${l.type} | ${l.percentage}% | ${detail} |`;
+        ? `(${l.currentUsage}/${l.totol})`
+        : "";
+    return `• ${l.type}: ${l.percentage}% ${detail}`;
   })
   .join("\n")}
 
-${mcpDetails ? `**📋 MCP 工具详细使用：**\n\n${mcpDetails}` : ""}
+${mcpDetails ? `📋 **MCP 详情**
+${mcpDetails}` : ''}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+📅 ${new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai', hour12: false })}
 `;
 }
 
