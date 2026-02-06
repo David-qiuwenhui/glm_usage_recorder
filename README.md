@@ -45,11 +45,11 @@ export ANTHROPIC_BASE_URL="https://open.bigmodel.cn/api/anthropic"
 
 ```bash
 # 生成使用情况报告
-node usage/get-usage-report.mjs
+node usage/get-usage-report.js
 
 # 或添加执行权限后运行
-chmod +x usage/get-usage-report.mjs
-./usage/get-usage-report.mjs
+chmod +x usage/get-usage-report.js
+./usage/get-usage-report.js
 ```
 
 #### 方式二：使用 Shell 脚本
@@ -117,8 +117,8 @@ zsh usage-report.sh
 ```
 glm_usage_recorder/
 ├── usage/                          # 📂 使用情况模块
-│   ├── get-usage-report.mjs        # 🔄 主报告生成脚本
-│   ├── parse-usage.mjs             # 🔍 数据解析函数
+│   ├── get-usage-report.js         # 🔄 主报告生成脚本
+│   ├── parse-usage.js              # 🔍 数据解析函数
 │   ├── input.txt                   # 📄 原始数据示例
 │   ├── target.md                   # 📋 目标输出格式
 │   └── output.md                   # 📝 解析结果输出
@@ -131,19 +131,19 @@ glm_usage_recorder/
 
 ## 🔧 模块说明
 
-### `usage/get-usage-report.mjs`
+### `usage/get-usage-report.js`
 
 主报告生成脚本，整合了数据查询和解析功能：
 
 - 🔌 **数据查询模块** - 通过 HTTPS 请求获取 API 数据
 - 🧩 **数据解析模块** - 解析 JSON 数据并生成 Markdown 报告
 
-### `usage/parse-usage.mjs`
+### `usage/parse-usage.js`
 
 独立的数据解析函数，可单独使用：
 
 ```javascript
-import { parseUsageData } from "./usage/parse-usage.mjs";
+import { parseUsageData } from "./usage/parse-usage.js";
 
 const rawData = "Platform: ZHIPU\n...";
 const report = parseUsageData(rawData);
@@ -168,7 +168,7 @@ npm install
 
 ```bash
 # 测试解析函数
-node usage/parse-usage.mjs "$(cat usage/input.txt)"
+node usage/parse-usage.js "$(cat usage/input.txt)"
 
 # 测试完整流程
 ./usage-report.sh

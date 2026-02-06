@@ -124,7 +124,7 @@ ${mcpDetails ? `**MCP 工具详细使用：**\n\n${mcpDetails}` : ""}
 const inputData = process.argv[2];
 
 if (!inputData) {
-  console.error("用法: node parse-usage.mjs \"<原始数据>\"");
+  console.error("用法: node parse-usage.js \"<原始数据>\"");
   process.exit(1);
 }
 
