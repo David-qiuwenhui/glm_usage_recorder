@@ -9,6 +9,7 @@
 ## 📋 任务背景
 
 GLM Usage Recorder 是一个模块化的 Node.js CLI 工具，用于查询和生成 GLM Coding Plan 使用情况报告。项目经过模块化重构后，需要一张清晰的架构图来：
+
 - 可视化展示项目的逻辑执行流程
 - 帮助团队成员和贡献者快速理解项目结构
 - 明确模块之间的依赖关系和数据流向
@@ -39,41 +40,47 @@ GLM Usage Recorder 是一个模块化的 Node.js CLI 工具，用于查询和生
 
 ### 颜色编码方案
 
-| 层级 | 边框颜色 | 背景颜色 | 用途 |
-|------|----------|----------|------|
+| 层级        | 边框颜色          | 背景颜色          | 用途                     |
+| ----------- | ----------------- | ----------------- | ------------------------ |
 | 入口/初始化 | #EA580C / #D97706 | #FFEDD5 / #FEF3C7 | Shell 脚本、主程序、配置 |
-| API/数据 | #4F46E5 / #059669 | #E0E7FF / #D1FAE5 | API 客户端、API 调用 |
-| 处理 | #DB2777 | #FCE7F3 | 数据处理、报告生成 |
-| 输出 | #16A34A | #DCFCE7 | 控制台输出 |
-| 外部依赖 | #DC2626 / #7C3AED | #FEE2E2 / #EDE9FE | API 服务器、环境变量 |
+| API/数据    | #4F46E5 / #059669 | #E0E7FF / #D1FAE5 | API 客户端、API 调用     |
+| 处理        | #DB2777           | #FCE7F3           | 数据处理、报告生成       |
+| 输出        | #16A34A           | #DCFCE7           | 控制台输出               |
+| 外部依赖    | #DC2626 / #7C3AED | #FEE2E2 / #EDE9FE | API 服务器、环境变量     |
 
 ### 关键组件
 
 #### Zone 1: 入口层
+
 - `usage-report.sh` - Shell 包装器
 - `get-usage-report.js` - 主入口脚本
 
 #### Zone 2: 初始化层
+
 - `validateEnv()` - 环境变量验证
 - `getPlatformConfig()` - 平台配置 (ZHIPU/ZAI)
 - `getTimeWindow()` - 时间窗口计算
 - `new ApiClient()` - API 客户端初始化
 
 #### Zone 3: 数据获取层
+
 - 三路并行 API 调用:
   - Model Usage API (`/api/monitor/usage/model-usage`)
   - Tool Usage API (`/api/monitor/usage/tool-usage`)
   - Quota Limit API (`/api/monitor/usage/quota/limit`)
 
 #### Zone 4: 处理层
+
 - `processQuotaLimit()` - 配额数据处理
 - `generateReport()` - 报告生成
 - 辅助函数: `extractJson()`, `generateTimeDistribution()`, `generateMcpDetails()`
 
 #### Zone 5: 输出层
+
 - Console 输出 (iMessage 友好格式)
 
 #### Zone 6: 外部依赖
+
 - GLM API 服务器
 - 环境变量
 
@@ -84,6 +91,7 @@ GLM Usage Recorder 是一个模块化的 Node.js CLI 工具，用于查询和生
 ### 1. 项目分析
 
 **执行的文件读取**:
+
 - `src/usage/get-usage-report.js` - 主入口，了解完整执行流程
 - `usage-report.sh` - Shell 包装器
 - `src/lib/config.js` - 环境验证和平台配置
@@ -94,6 +102,7 @@ GLM Usage Recorder 是一个模块化的 Node.js CLI 工具，用于查询和生
 - `src/lib/utils/format.js` - 格式化工具函数
 
 **关键发现**:
+
 - 项目采用清晰的分层架构
 - 支持 ZAI 和 ZHIPU 两个平台
 - 使用三路并行 API 调用提高效率
@@ -108,11 +117,13 @@ mkdir -p docs/plan
 ### 3. Excalidraw JSON 生成
 
 创建包含以下元素的架构图：
+
 - 60 个图形元素（矩形、文本、箭头）
 - 画布尺寸: 1920x1080
 - Excalidraw version 2 格式
 
 **文件信息**:
+
 - 大小: 47KB
 - 行数: 1944 行
 - 位置: `docs/diagrams/glm-usage-recorder-architecture.excalidraw`
@@ -132,6 +143,7 @@ git push
 ### 架构图特性
 
 ✅ **五层架构可视化**
+
 - ① 入口层 (Shell 脚本 + 主程序)
 - ② 初始化层 (环境验证、平台配置、时间窗口)
 - ③ API 层 (API 客户端 + 三路并行调用)
@@ -193,14 +205,17 @@ docs/
 ```
 
 **命名规范**:
+
 - `plans/` 目录: 使用 `YYYY-MM-DD-task-name.md` 格式
 - `diagrams/` 目录: 使用描述性的 artifact 名称
 
 **用途说明**:
+
 - **plans/** 存放任务规划、执行总结等 Markdown 文档（思考过程）
 - **diagrams/** 存放可视化的产物（输出结果）
 
 这样的结构让**规划（思考）**和**产物（输出）**清晰分离，便于：
+
 - 追溯任务决策过程
 - 理解产物设计意图
 - 后续维护和迭代
