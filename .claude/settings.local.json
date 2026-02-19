@@ -10,7 +10,10 @@
       "Bash(node:*)",
       "Bash(npm:*)",
       "Bash(./usage-report.sh:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "mcp__plugin_serena_serena__activate_project",
+      "mcp__plugin_serena_serena__list_dir",
+      "Bash(find:*)"
     ]
   }
 }
